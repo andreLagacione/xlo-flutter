@@ -3,6 +3,7 @@ import 'package:xlo/blocs/login/field_state.dart';
 import 'package:xlo/blocs/login/login_bloc.dart';
 import 'package:xlo/screens/login/widgets/facebook_button.dart';
 import 'package:xlo/screens/login/widgets/login_button.dart';
+import 'package:xlo/screens/login/widgets/or_divider.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -27,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               FacebookButton(_loginBloc),
+              OrDivider(),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 11),
                 child: Text(

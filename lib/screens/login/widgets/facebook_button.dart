@@ -23,8 +23,12 @@ class FacebookButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(26)
             ),
-            onPressed: snapshot.data.state != LoginState.LOADING_FACE ? () {
-              loginBloc.loginWithFacebook();
+            onPressed: snapshot.data.state != LoginState.LOADING_FACE ? () async {
+              final bool success = await loginBloc.loginWithFacebook();;
+
+              if (success) {
+                Navigator.of(context).pop();
+              }
             } : null,
             child: snapshot.data.state == LoginState.LOADING_FACE ?
               CircularProgressIndicator(

@@ -36,20 +36,22 @@ class LoginBloc with LoginValidator {
   }
   );
 
-  void loginWithEmail() async {
+  Future<bool> loginWithEmail() async {
     _stateController.add(LoginBlocState(LoginState.LOADING));
 
     await Future.delayed(Duration(seconds: 3));
 
     _stateController.add(LoginBlocState(LoginState.DONE));
+    return true;
   }
 
-  void loginWithFacebook() async {
+  Future<bool> loginWithFacebook() async {
     _stateController.add(LoginBlocState(LoginState.LOADING_FACE));
 
     await Future.delayed(Duration(seconds: 3));
 
     _stateController.add(LoginBlocState(LoginState.LOADING_FACE));
+    return true;
   }
 
   void dispode() {

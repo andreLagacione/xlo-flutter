@@ -24,7 +24,7 @@ class FacebookButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(26)
             ),
             onPressed: snapshot.data.state != LoginState.LOADING_FACE ? () async {
-              final bool success = await loginBloc.loginWithFacebook();;
+              final bool success = await loginBloc.loginWithFacebook();
 
               if (success) {
                 Navigator.of(context).pop();

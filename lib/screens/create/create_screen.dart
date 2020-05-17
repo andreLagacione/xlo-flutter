@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:xlo/blocs/create_bloc.dart';
 import 'package:xlo/blocs/drawer_bloc.dart';
+import 'package:xlo/blocs/home_bloc.dart';
 import 'package:xlo/common/cep_field.dart';
 import 'package:xlo/common/custom_drawer/custom_drawer.dart';
 import 'package:xlo/models/ad.dart';
@@ -172,6 +173,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     onPressed: () async {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
+                        Provider.of<HomeBloc>(context).addAd(ad);
                         final bool success = await _createBloc.saveAd(ad);
 
                         if (success) {
